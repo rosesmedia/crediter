@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@font-face {
+  font-family: "ff-good-web-pro-condensed";
+  src:
+    url("/good-pro-cond-ultra-italic.woff2") format("woff2"),
+    url("/good-pro-cond-ultra-italic.woff") format("woff"),
+    url("/good-pro-cond-ultra-italic.otf") format("opentype");
+  font-display: auto;
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "soleil";
+  src:
+    url("/soleil-book.woff2") format("woff2"),
+    url("/soleil-book.woff") format("woff"),
+    url("/soleil-book.otf") format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+.roses-title-text {
+  font-family: "ff-good-web-pro-condensed", sans-serif;
+  font-weight: 900;
+  font-style: "italic";
+}
+
+.roses-body-text {
+  font-family: "soleil", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.blink {
+  animation: blinker 1.5s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

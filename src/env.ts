@@ -9,6 +9,15 @@ const envSchema = z.object({
   PUBLIC_URL: z
     .string()
     .refine((str) => !str.endsWith("/"), "PUBLIC_URL must not end with a '/'"),
+  ROSES_SCHEDULER_BASE_URL: z
+    .string()
+    .refine(
+      (str) => !str.endsWith("/"),
+      "ROSES_SCHEDULER_BASE_URL must not end with a '/'",
+    ),
+  ROSES_SCHEDULER_INSTANCE: z.string().optional(),
+  ROSES_SCHEDULER_PERIOD: z.string(),
+  ROSES_SCHEDULER_API_KEY: z.string(),
 });
 
 export function validateEnv(

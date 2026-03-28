@@ -1,5 +1,7 @@
 # YSTV Crediter
 
+# NaSTA Award Winning
+
 To install dependencies:
 
 ```bash

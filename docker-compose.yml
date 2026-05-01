@@ -1,12 +1,25 @@
 services:
   redis:
     image: redis:7
-    container_name: redis
     ports:
       - "6379:6379"
-    command: ["redis-server", "--appendonly", "yes"]
+    command: [ "redis-server", "--appendonly", "yes" ]
     volumes:
       - redis-data:/data
+
+  database:
+    # Official Postgres image from DockerHub (we use the last version)
+    image: "postgres:latest"
+    ports:
+      - 5441:5432
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: roses-crediter
+
+    volumes:
+      - ./db-data/:/var/lib/postgresql/
 
 volumes:
   redis-data:

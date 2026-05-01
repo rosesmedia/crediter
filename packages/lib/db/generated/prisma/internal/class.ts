@@ -22,7 +22,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/Users/archessmn/projects/ystv/experimental-hypothetical-new-credits-site-idea/packages/lib/db/generated/prisma",
+      "value": "/Users/archessmn/projects/rosesmedia/crediter/packages/lib/db/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -36,7 +36,7 @@ const config: runtime.GetPrismaClientConfig = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/archessmn/projects/ystv/experimental-hypothetical-new-credits-site-idea/prisma/schema.prisma",
+    "sourceFilePath": "/Users/archessmn/projects/rosesmedia/crediter/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../../../../prisma",
@@ -46,7 +46,6 @@ const config: runtime.GetPrismaClientConfig = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {

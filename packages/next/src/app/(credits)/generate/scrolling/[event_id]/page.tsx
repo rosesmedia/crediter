@@ -40,8 +40,8 @@ export default async function CreditsPage({
   return (
     <div
       style={{
-        backgroundColor: "black",
-        color: "white",
+        backgroundColor: "white",
+        color: "red",
         display: "grid",
         width: "100vw",
         placeItems: "center",

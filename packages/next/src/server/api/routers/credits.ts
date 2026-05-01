@@ -112,9 +112,12 @@ export const creditsRouter = createTRPCRouter({
         progress: CreditProgress.IMAGE_SAVED,
       });
 
-      const PX_PER_FRAME = 6;
+      // const PX_PER_FRAME = 6;
 
-      const TOTAL_FRAMES = Math.ceil((dimensions.height - 1080) / PX_PER_FRAME);
+      // const TOTAL_FRAMES = Math.ceil((dimensions.height - 1080) / PX_PER_FRAME);
+      const TOTAL_FRAMES = 900;
+
+      const PX_PER_FRAME = (dimensions.height - 1080) / TOTAL_FRAMES;
 
       const quality_args = ["-r", "50", "-preset", "veryslow", "-crf", "10"];
 
@@ -162,18 +165,48 @@ export const creditsRouter = createTRPCRouter({
         "-i",
         tmpdir_path("credits_scroll.mp4"),
         "-i",
-        "assets/2026_endcard_50p.mp4",
+        "assets/2026_endcard_15s.mp4",
         "-filter_complex",
         "[0:v]fps=50[v0];[1:v]fps=50[v1];[v0][v1]concat=n=2:v=1[outv]",
         "-map",
         "[outv]",
         ...quality_args,
         "-y",
-        tmpdir_path("out.mp4"),
+        tmpdir_path("out_no_sound.mp4"),
       ];
 
       await new Promise<void>((resolve, reject) => {
         const child = spawn(process.env.FFMPEG_PATH ?? "ffmpeg", concat_args);
+
+        child.on("close", (code) => {
+          if (code === 0) return resolve();
+          reject(new Error(`Process exited with code ${code}`));
+        });
+      });
+
+      const add_theme_args = [
+        "-i",
+        tmpdir_path("out_no_sound.mp4"),
+        "-i",
+        "assets/theme_33s.wav",
+        "-c:v",
+        "copy",
+        "-c:a",
+        "copy",
+        "-map",
+        "0:v:0",
+        "-map",
+        "1:a:0",
+        ...quality_args,
+        "-y",
+        tmpdir_path("out.mp4"),
+      ];
+
+      await new Promise<void>((resolve, reject) => {
+        const child = spawn(
+          process.env.FFMPEG_PATH ?? "ffmpeg",
+          add_theme_args,
+        );
 
         child.on("close", (code) => {
           if (code === 0) return resolve();

@@ -32,7 +32,7 @@ pipeline {
         sh """docker build \\
           --build-arg GIT_REV=${env.GIT_COMMIT} \\
           --build-arg VERSION=${env.TAG_NAME ?: 'v0.0.0'} \\
-          -t registry.comp.ystv.co.uk/ystv/crediter:${imageTag}\\
+          -t registry.comp.ystv.co.uk/rosesmedia/crediter:${imageTag}\\
           .
         """
       }
@@ -47,7 +47,7 @@ pipeline {
         }
       }
       steps {
-        dockerPush image: 'registry.comp.ystv.co.uk/ystv/crediter', tag: imageTag
+        dockerPush image: 'registry.comp.ystv.co.uk/rosesmedia/crediter', tag: imageTag
       }
     }
 
@@ -66,12 +66,12 @@ pipeline {
       }
       steps {
         build job: 'Deploy Nomad Job', parameters: [
-          string(name: 'JOB_FILE', value: 'crediter-dev.nomad'),
-          text(name: 'TAG_REPLACEMENTS', value: "registry.comp.ystv.co.uk/ystv/crediter:${imageTag}")
+          string(name: 'JOB_FILE', value: 'roses-crediter-dev.nomad'),
+          text(name: 'TAG_REPLACEMENTS', value: "registry.comp.ystv.co.uk/rosesmedia/crediter:${imageTag}")
         ], wait: true
         deployPreview action: 'cleanup'
         deployPreview action: 'cleanupMerge'
-        sh "nomad alloc exec -task crediter-dev -job crediter-dev npx -y prisma migrate deploy"
+        sh "nomad alloc exec -task roses-crediter-dev -job roses-crediter-dev npx -y prisma migrate deploy"
       }
     }
 
@@ -82,10 +82,10 @@ pipeline {
       }
       steps {
         build job: 'Deploy Nomad Job', parameters: [
-          string(name: 'JOB_FILE', value: 'crediter-prod.nomad'),
+          string(name: 'JOB_FILE', value: 'roses-crediter-prod.nomad'),
           text(name: 'TAG_REPLACEMENTS', value: "registry.comp.ystv.co.uk/ystv/crediter:${imageTag}")
         ], wait: true
-        sh "nomad alloc exec -task crediter-prod -job crediter-prod npx -y prisma migrate deploy"
+        sh "nomad alloc exec -task roses-crediter-prod -job roses-crediter-prod npx -y prisma migrate deploy"
       }
     }
   }

@@ -220,7 +220,7 @@ export const creditsRouter = createTRPCRouter({
 
       const minioClient = getMinioClient();
 
-      const minioPath = `credits/${asset.id}`;
+      const minioPath = `roses-credits/${asset.id}`;
 
       await minioClient.fPutObject(
         env.MINIO_BUCKET,

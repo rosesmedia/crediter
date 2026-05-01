@@ -4664,6 +4664,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rosesmedia-crediter@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "rosesmedia-crediter@workspace:."
+  dependencies:
+    "@prisma/client": "npm:6.18.0"
+    "@types/bun": "npm:latest"
+    "@vercel/ncc": "npm:^0.38.4"
+    "@yarnpkg/types": "npm:^4.0.1"
+    dotenv: "npm:^17.2.3"
+    dotenv-cli: "npm:^11.0.0"
+    next: "npm:15.2.8"
+    nodemon: "npm:^3.1.11"
+    prettier: "npm:^3.8.1"
+    prettier-plugin-tailwindcss: "npm:^0.7.2"
+    prisma: "npm:6.18.0"
+    socket.io: "npm:^4.8.1"
+    socket.io-client: "npm:^4.8.1"
+    tsx: "npm:^4.20.6"
+    typescript: "npm:^5"
+    zod: "npm:^4.1.12"
+  languageName: unknown
+  linkType: soft
+
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
   resolution: "run-parallel@npm:1.2.0"
@@ -5645,29 +5668,6 @@ __metadata:
   checksum: 10c0/f265002af7541b9ec3589a27f5fb8f11cf348b53cc15e2751272e3c062cd73f3e715bc72d43257de71bbaecae446c3f1b14af7559e8ab0261625375541816422
   languageName: node
   linkType: hard
-
-"ystv-crediter@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "ystv-crediter@workspace:."
-  dependencies:
-    "@prisma/client": "npm:6.18.0"
-    "@types/bun": "npm:latest"
-    "@vercel/ncc": "npm:^0.38.4"
-    "@yarnpkg/types": "npm:^4.0.1"
-    dotenv: "npm:^17.2.3"
-    dotenv-cli: "npm:^11.0.0"
-    next: "npm:15.2.8"
-    nodemon: "npm:^3.1.11"
-    prettier: "npm:^3.8.1"
-    prettier-plugin-tailwindcss: "npm:^0.7.2"
-    prisma: "npm:6.18.0"
-    socket.io: "npm:^4.8.1"
-    socket.io-client: "npm:^4.8.1"
-    tsx: "npm:^4.20.6"
-    typescript: "npm:^5"
-    zod: "npm:^4.1.12"
-  languageName: unknown
-  linkType: soft
 
 "zod@npm:^3.24.1":
   version: 3.25.76

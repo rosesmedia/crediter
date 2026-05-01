@@ -10,7 +10,7 @@ const envSchema = z.object({
     process.env.NODE_ENV === "production" ? z.string() : z.string().optional(),
   DATABASE_URL: z
     .url()
-    .default("postgresql://postgres@localhost/ystv_crediter"),
+    .default("postgresql://postgres@localhost/roses-crediter"),
   NODE_ENV: z
     .enum(["development", "test", "production"])
     .default("development"),

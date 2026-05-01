@@ -19,7 +19,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { MinioConfigProvider } from "../_components/minio-provider";
 
 export const metadata: Metadata = {
-  title: "YSTV Crediter",
+  title: "Roses Media Crediter",
   description: "Hopefully making credits easier",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

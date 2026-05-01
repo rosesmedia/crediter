@@ -83,7 +83,7 @@ pipeline {
       steps {
         build job: 'Deploy Nomad Job', parameters: [
           string(name: 'JOB_FILE', value: 'roses-crediter-prod.nomad'),
-          text(name: 'TAG_REPLACEMENTS', value: "registry.comp.ystv.co.uk/ystv/crediter:${imageTag}")
+          text(name: 'TAG_REPLACEMENTS', value: "registry.comp.ystv.co.uk/rosesmedia/crediter:${imageTag}")
         ], wait: true
         sh "nomad alloc exec -task roses-crediter-prod -job roses-crediter-prod npx -y prisma migrate deploy"
       }

@@ -30,6 +30,8 @@ const envSchema = z.object({
       "MINIO_ANON_URL_BASE should not end with a '/'",
     )
     .optional(),
+  SCHEDULER_PERIOD: z.string().optional(),
+  SCHEDULER_API_KEY: z.string().optional(),
 });
 
 export function validateEnv(): z.infer<typeof envSchema> {

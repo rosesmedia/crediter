@@ -4,6 +4,7 @@ import { creditRoleNamesRouter } from "./routers/credit-role-names";
 import { creditRolesRouter } from "./routers/credit-roles";
 import { creditsRouter } from "./routers/credits";
 import { eventsRouter } from "./routers/events";
+import { schedulerRouter } from "./routers/scheduler";
 
 /**
  * This is the primary router for your server.
@@ -15,6 +16,7 @@ export const appRouter = createTRPCRouter({
   creditRoles: creditRolesRouter,
   creditRoleNames: creditRoleNamesRouter,
   events: eventsRouter,
+  scheduler: schedulerRouter,
   test: testRouter,
 });
 

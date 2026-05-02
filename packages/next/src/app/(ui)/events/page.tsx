@@ -46,7 +46,12 @@ export default function EventsPage() {
         <CreateEventForm onSuccess={() => setModalOpened(undefined)} />
       </Modal>
       <Stack>
-        <Button onClick={() => setModalOpened("create")}>Create Event</Button>
+        <Button.Group>
+          <Button component={Link} href={"/events/import"} color="green">
+            Import from Scheduler
+          </Button>
+          <Button onClick={() => setModalOpened("create")}>Create Event</Button>
+        </Button.Group>
         {events.map((event) => {
           return (
             <Card key={event.id} withBorder>
